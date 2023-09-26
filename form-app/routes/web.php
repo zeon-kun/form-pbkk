@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/form', function () {
+    return view('form');
+});
+
+Route::post('/submission', [FormController::class, 'store']);
+Route::get('/submission', [FormController::class, 'index']);
